@@ -1,4 +1,4 @@
-# roulette-calculator
+# martingale-roulette-calculator
 
 Calculates odds for the Martingale system
 
