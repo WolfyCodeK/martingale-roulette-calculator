@@ -28,12 +28,14 @@ def makeBet():
     
     return win
 
-startingPot = 50000
+startingPot = int(input("Starting Pot -> "))
 startingBet = 0.1
 spinMinutes = 3
 startTime = time.time()
 
-with open(f'pot({startingPot}).csv', 'w', newline='') as csvfile:
+csvPath = f'stats/pot({startingPot}).csv'
+
+with open(csvPath, 'w', newline='') as csvfile:
     writer = csv.writer(csvfile, delimiter=',',
                             quotechar=' ', quoting=csv.QUOTE_MINIMAL)
     writer.writerow(['Pot', 'Bet', 'Winrate', 'Time', 'Profit'])
@@ -102,7 +104,7 @@ while (startingBet < startingPot):
     #print(f'Average time played: {averageTimePlayed}')
 
     # Write to CSV
-    with open(f'pot({startingPot}).csv', 'a', newline='') as csvfile:
+    with open(csvPath, 'a', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',',
                                 quotechar=' ', quoting=csv.QUOTE_MINIMAL)
         writer.writerow([startingPot, startingBet, winRate, averageTimePlayed, averageProfit])
